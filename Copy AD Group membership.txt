@@ -1,0 +1,3 @@
+Get-ADUser -Identity SOURCE -Properties memberof |
+Select-Object -ExpandProperty memberof |
+Add-ADGroupMember -Members TARGET
