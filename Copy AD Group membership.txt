@@ -1,3 +1,6 @@
-Get-ADUser -Identity SOURCE -Properties memberof |
+$Source = Read-Host "Enter the SAM Account name of the user you are copying membership FROM"
+$Target = Read-Host "Enter the SAM Account name of the user you are copying membership TO"
+
+Get-ADUser -Identity $SOURCE -Properties memberof |
 Select-Object -ExpandProperty memberof |
-Add-ADGroupMember -Members TARGET
+Add-ADGroupMember -Members $TARGET
